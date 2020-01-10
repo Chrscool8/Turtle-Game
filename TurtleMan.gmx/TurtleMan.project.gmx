@@ -14,6 +14,8 @@
     <sprite>sprites\spr_water</sprite>
     <sprite>sprites\spr_map_water</sprite>
     <sprite>sprites\spr_shadow_square</sprite>
+    <sprite>sprites\spr_trinket</sprite>
+    <sprite>sprites\spr_map_trinket</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -29,6 +31,7 @@
     <object>objects\obj_water</object>
     <object>objects\obj_skybox</object>
     <object>objects\obj_turtle</object>
+    <object>objects\obj_trinket</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>
