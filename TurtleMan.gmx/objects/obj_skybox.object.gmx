@@ -49,9 +49,9 @@
           <argument>
             <kind>1</kind>
             <string>d3d_transform_set_identity();
-d3d_transform_add_rotation_z(current_time/10000);
+d3d_transform_add_rotation_z(current_time/10000+180);
 if instance_exists(obj_camera)
-    d3d_transform_add_translation(obj_camera.x, obj_camera.y, -500);
+    d3d_transform_add_translation(obj_camera.x, obj_camera.y, -800);
 d3d_draw_cylinder(-5000, -5000, 0, 5000, 5000, -1900, tex, 1, 1, false, 32);
 d3d_transform_set_identity();
 </string>

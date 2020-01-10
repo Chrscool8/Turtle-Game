@@ -57,8 +57,8 @@ z = 0;
 with(obj_turtle)
 {
     other.cam_rot = turtle_dir;
-    other.x = x;
-    other.y = y;
+    other.x = x - other.cam_off_x/3;
+    other.y = y - other.cam_off_y/3;
 }
 
 
