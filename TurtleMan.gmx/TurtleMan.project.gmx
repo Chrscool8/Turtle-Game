@@ -32,6 +32,7 @@
     <object>objects\obj_skybox</object>
     <object>objects\obj_turtle</object>
     <object>objects\obj_trinket</object>
+    <object>objects\obj_onscreen_controls_x</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>
