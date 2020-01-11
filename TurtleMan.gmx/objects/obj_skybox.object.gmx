@@ -26,32 +26,6 @@
           <argument>
             <kind>1</kind>
             <string>tex = sprite_get_texture(spr_sky, 0);
-
-generated = false;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="5">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if sprite_exists(sprite_index)
-sprite_delete(sprite_index);
 </string>
           </argument>
         </arguments>
@@ -74,63 +48,11 @@ sprite_delete(sprite_index);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (generated == false)
-{
-    //draw_set_alpha(1);
-    //draw_set_color(c_white);
-
-    d3d_end();
-    
-    var width = 2048;
-    var height = 128;
-    
-    var surf = surface_create(width, height);
-    surface_set_target(surf);
-    //draw_rectangle_colour(0, 0, width, height, c_white, c_red, c_blue, c_green, false);
-    draw_clear_alpha(make_colour_rgb(90, 57, 33), 1);
-    
-    draw_set_color(make_colour_rgb(255, 255, 181));
-    repeat(540)
-        draw_point(random(1)*width, (1-sqr(random(1)))*height);
-    draw_set_color(c_white);
-    
-    draw_sprite(spr_moon, 0, width/2, height/3*2);
-    
-    var rand = irandom(7)+5;
-    
-    var segwidth = width/2/(rand+1);
-    
-    for (var i = 0; i &lt; rand; i += 1)
-    {
-        draw_sprite_ext(spr_cloud, random(sprite_get_number(spr_cloud)), width/2-segwidth*(i+1)+random(segwidth), height*3/4+random(height/8), -1, 1, 0, c_white, 1);
-    }
-    
-    rand = irandom(7)+5;
-    
-    segwidth = width/2/(rand+1);
-    for (var i = 0; i &lt; rand; i += 1)
-    {
-        draw_sprite_ext(spr_cloud, random(sprite_get_number(spr_cloud)), width/2+segwidth*(i+1)-random(segwidth), height*3/4+random(height/8), 1, 1, 0, c_white, 1);
-    }
-    
-    surface_reset_target();
-    
-    var sky = sprite_create_from_surface(surf, 0, 0, width, height, false, false, 0, 0);
-    surface_free(surf);
-    //sprite_save(sky, 0, "test_sky.png");
-    tex = sprite_get_texture(sky, 0);
-    generated = true;
-    
-    d3d_start();
-}
-
-
-d3d_transform_set_identity();
+            <string>d3d_transform_set_identity();
 d3d_transform_add_rotation_z(current_time/10000+180);
 if instance_exists(obj_camera)
     d3d_transform_add_translation(obj_camera.x, obj_camera.y, -800);
-d3d_draw_cylinder(-5000, -5000, -1900, 5000, 5000, 0, tex, 1, 1, false, 64);
-//d3d_draw_block(-5000, -5000, 0, 5000, 5000, -1900, tex, 1, 1);
+d3d_draw_cylinder(-5000, -5000, 0, 5000, 5000, -1900, tex, 1, 1, false, 32);
 d3d_transform_set_identity();
 </string>
           </argument>

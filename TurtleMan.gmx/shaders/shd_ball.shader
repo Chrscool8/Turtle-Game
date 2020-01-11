@@ -23,10 +23,13 @@ void main()
     
     if (dist < max_dist*max_dist)
     {    
-        float distx = xdiff/max_dist;
-        float disty = ydiff/max_dist;
+        float distx = xdiff/max_dist; //(clamp(xdiff, -max_dist, max_dist))/max_dist;
+        float disty = ydiff/max_dist; //(clamp(ydiff, -max_dist, max_dist))/max_dist;
         float distz = (center.z-in_Position.z)/max_dist;
+        // vec4 object_space_pos = vec4( in_Position.x, in_Position.y, in_Position.z - (distx*distx)*20. - (disty*disty)*50., 1.0);
+        // float new_x = sqrt(1.-(distx*distx)) * distx + center.x; 
         float new_z = sqrt(1. - distx*distx - disty*disty)-1.;
+        //float new_x = sqrt(1. - distz*distz - disty*disty);
         vec4 object_space_pos = vec4( in_Position.x, in_Position.y, new_z*max_dist+in_Position.z, 1.0);
         gl_Position = gm_Matrices[MATRIX_WORLD_VIEW_PROJECTION] * object_space_pos;
         v_vColour = in_Colour;
