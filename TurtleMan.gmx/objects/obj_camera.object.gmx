@@ -31,7 +31,6 @@ cam_off_y = 0;
 cam_rot = 90;
 
 z = 0;
-
 </string>
           </argument>
         </arguments>
@@ -65,29 +64,6 @@ with(obj_turtle)
 
 cam_off_x = lengthdir_x(250, cam_rot+180);
 cam_off_y = lengthdir_y(250, cam_rot+180);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="64">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>//draw_text(30, 30, string(fps)+":"+string(fps_real));
 </string>
           </argument>
         </arguments>
