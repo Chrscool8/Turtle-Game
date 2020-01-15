@@ -16,12 +16,16 @@
     <sprite>sprites\spr_shadow</sprite>
     <sprite>sprites\spr_water</sprite>
     <sprite>sprites\spr_map_water</sprite>
+    <sprite>sprites\spr_map_water_new</sprite>
     <sprite>sprites\spr_shadow_square</sprite>
     <sprite>sprites\spr_deco</sprite>
     <sprite>sprites\spr_map_deco</sprite>
     <sprite>sprites\spr_hermit</sprite>
     <sprite>sprites\spr_cloud</sprite>
     <sprite>sprites\spr_moon</sprite>
+    <sprite>sprites\spr_4x4</sprite>
+    <sprite>sprites\spr_water_new</sprite>
+    <sprite>sprites\spr_water_ocean_new</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -35,7 +39,10 @@
   <objects name="objects">
     <object>objects\obj_camera</object>
     <object>objects\obj_floor_tile</object>
+    <object>objects\obj_tile_test</object>
     <object>objects\obj_water</object>
+    <object>objects\obj_water_new</object>
+    <object>objects\obj_water_deep_new</object>
     <object>objects\obj_skybox</object>
     <object>objects\obj_turtle</object>
     <object>objects\obj_deco</object>
