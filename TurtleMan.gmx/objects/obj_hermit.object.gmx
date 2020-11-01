@@ -110,25 +110,29 @@ alarm[0] = 60+random(60);
             <kind>1</kind>
             <string>var fade_out = 1200;
 
-if (instance_exists(obj_camera) and point_distance(x, y, obj_camera.x, obj_camera.y)&lt;fade_out)
+for(var i = -1; i &lt; 2; i++)
 {
-    var cam_rot = point_direction(x, y, obj_camera.x + obj_camera.cam_off_x, obj_camera.y + obj_camera.cam_off_y)+90;
-    
-    shader_set(shd_ball);
-    if instance_exists(obj_camera)
-        center_set(obj_camera.x-x, obj_camera.y-y, 0);
-    d3d_transform_set_identity();
-    //d3d_transform_add_translation(0, 0, 0);
-    
-    //var dist = point_distance(x, y, obj_camera.x + obj_camera.cam_off_x, obj_camera.y + obj_camera.cam_off_y);
-    //var extra_tilt = (dist/fade_out)*45;
-    
-    d3d_transform_add_rotation_x(-45);
-    d3d_transform_add_rotation_z(cam_rot);
-    d3d_transform_add_translation(x, y, z);
-    d3d_draw_wall(-48, 0, 96, 48, 0, 0, sprite_get_texture(sprite_index, image_index), 1, 1);
-    d3d_transform_set_identity();
-    shader_reset();
+    var xoff = obj_generator.tile_size * obj_generator.map_width * i;
+    if (instance_exists(obj_camera) and point_distance(x+xoff, y, obj_camera.x, obj_camera.y)&lt;fade_out)
+    {
+        var cam_rot = point_direction(x+xoff, y, obj_camera.x + obj_camera.cam_off_x, obj_camera.y + obj_camera.cam_off_y)+90;
+        
+        shader_set(shd_ball);
+        if instance_exists(obj_camera)
+            center_set(obj_camera.x-(x+xoff), obj_camera.y-y, 0);
+        d3d_transform_set_identity();
+        //d3d_transform_add_translation(0, 0, 0);
+        
+        //var dist = point_distance(x, y, obj_camera.x + obj_camera.cam_off_x, obj_camera.y + obj_camera.cam_off_y);
+        //var extra_tilt = (dist/fade_out)*45;
+        
+        d3d_transform_add_rotation_x(-45);
+        d3d_transform_add_rotation_z(cam_rot);
+        d3d_transform_add_translation(x+xoff, y, z);
+        d3d_draw_wall(-48, 0, 96, 48, 0, 0, sprite_get_texture(sprite_index, image_index), 1, 1);
+        d3d_transform_set_identity();
+        shader_reset();
+    }
 }
 </string>
           </argument>

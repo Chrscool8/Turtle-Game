@@ -81,6 +81,8 @@ if (z &lt;= 0)
     z = 0;
     zsp = 0;
 }
+
+
 </string>
           </argument>
         </arguments>
@@ -105,23 +107,33 @@ if (z &lt;= 0)
             <kind>1</kind>
             <string>var cam_rot = turtle_dir-90; //point_direction(x, y, obj_camera.x, obj_camera.y);
 
-shader_set(shd_ball);
-if instance_exists(obj_camera)
-    center_set(obj_camera.x-x, obj_camera.y-y, 0);
 d3d_transform_set_identity();
 //d3d_transform_add_translation(0, 0, 0);
 d3d_transform_add_rotation_x(-45);
 d3d_transform_add_rotation_z(cam_rot);
-d3d_transform_add_translation(x, y, z);
-d3d_draw_wall(-32, 0, 64, 32, 0, 0, sprite_get_texture(sprite_index, image_index), 1, 1);
+d3d_transform_add_translation(x+lengthdir_x(17, cam_rot-90), y+lengthdir_y(17, cam_rot-90), z);
+d3d_draw_wall(-32, 0, 62, 32, 0, -2, sprite_get_texture(sprite_index, image_index), 1, 1);
 d3d_transform_set_identity();
+shader_set(shd_ball);
+if instance_exists(obj_camera)
+    center_set(obj_camera.x-x, obj_camera.y-y, 0);
 d3d_transform_add_scaling(2.5, 2.5, 1);
-d3d_transform_add_translation(x, y+4, .01);
+//d3d_transform_add_translation(x+lengthdir_x(.5, -cam_rot+90), y+lengthdir_x(.5, -cam_rot+90), .01);
+d3d_transform_add_translation(x, y, .01);
 draw_set_alpha(.6)
-//d3d_draw_floor(-8, -8, 0, 8, 8, 0, sprite_get_texture(spr_shadow, 0), 1, 1);
+d3d_draw_floor(-8, -8, 0, 8, 8, 0, sprite_get_texture(spr_shadow, 0), 1, 1);
 draw_set_alpha(1)
 d3d_transform_set_identity();
 shader_reset();
+
+if (instance_exists(obj_generator))
+{
+    y = clamp(y, 0, obj_generator.tile_size * (obj_generator.map_height-.65));
+    if (x &lt; 0)
+        x += obj_generator.tile_size * obj_generator.map_width;
+    else if (x &gt; obj_generator.tile_size * obj_generator.map_width)
+        x -= obj_generator.tile_size * obj_generator.map_width;
+}
 </string>
           </argument>
         </arguments>

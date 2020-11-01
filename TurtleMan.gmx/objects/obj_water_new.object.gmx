@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>size = 128;
-offset = round(x/size);
+offset = floor(x/size)*2;
 image_speed = 5/60;
 sprite_index = spr_water_new;
 </string>
@@ -51,13 +51,18 @@ sprite_index = spr_water_new;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (instance_exists(obj_camera) and point_distance(x, y, obj_camera.x, obj_camera.y)&lt;460)
+            <string>for (var i = -1; i &lt; 2; i += 1)
 {
-    if not keyboard_check(vk_control)
-    shader_set(shd_ball);
-    center_set(obj_camera.x, obj_camera.y, 0);
-    d3d_draw_floor(x, y, 0, x+size, y+size, 0, sprite_get_texture(sprite_index, image_index+offset), 1, 1);
-    shader_reset();
+    var xoff = obj_generator.tile_size * obj_generator.map_width * i;
+    if (instance_exists(obj_camera) and point_distance(x+xoff, y, obj_camera.x, obj_camera.y)&lt;960)
+    {
+        if not keyboard_check(vk_control)
+        shader_set(shd_ball);
+        center_set(obj_camera.x, obj_camera.y, 0);
+        var tex = sprite_get_texture(sprite_index, image_index+offset);
+        draw_subdivided_floor(x+xoff, y, size, 2, tex);
+        shader_reset();
+    }
 }
 </string>
           </argument>
