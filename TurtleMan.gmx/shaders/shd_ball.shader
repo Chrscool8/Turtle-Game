@@ -18,7 +18,7 @@ void main()
     float xdiff = center.x-in_Position.x;
     float xdiff2 = xdiff*xdiff;
     float ydiff = center.y-in_Position.y;
-    float ydiff2 = ydiff*ydiff;
+    float ydiff2 = ydiff*ydiff;    
     float dist = ((xdiff*xdiff)+(ydiff*ydiff));
     
     if (dist < max_dist*max_dist)
@@ -26,7 +26,7 @@ void main()
         float distx = xdiff/max_dist;
         float disty = ydiff/max_dist;
         float distz = (center.z-in_Position.z)/max_dist;
-        float new_z = sqrt(1. - distx*distx - disty*disty)-1.;
+        float new_z = sqrt(1. - distx*distx - disty*disty) - 1.;
         vec4 object_space_pos = vec4( in_Position.x, in_Position.y, new_z*max_dist+in_Position.z, 1.0);
         gl_Position = gm_Matrices[MATRIX_WORLD_VIEW_PROJECTION] * object_space_pos;
         v_vColour = in_Colour;
