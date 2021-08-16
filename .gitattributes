@@ -1,1 +1,2 @@
 *.* linguist-language=Game Maker Language
+*.gmx linguist-detectable=true
