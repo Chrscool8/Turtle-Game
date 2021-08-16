@@ -62,7 +62,7 @@ repeat(map_width*map_height/50)
     instance_create(floor(random(map_width*tile_size)), floor(random(map_height*tile_size)), obj_deco);
 }
 
-repeat(3)
+repeat(30)
     instance_create(floor(random(map_width*tile_size)), floor(random(map_height*tile_size)), obj_hermit);
 
 // player
@@ -92,7 +92,8 @@ instance_create(0, 0, obj_skybox);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.xoff = get_integer("", 0);
+            <string>//global.xoff = get_integer("", 0);
+instance_create(x, y, obj_hermit);
 </string>
           </argument>
         </arguments>
